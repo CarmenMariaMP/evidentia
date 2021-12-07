@@ -12,14 +12,10 @@
 
 | Miembro | Implicación |
 | ------------- | ------------- |
-| [Castro Bonilla, María](https://github.com/Mariia-2000) | [5]
-|
-| [Diz Gil, Guillermo](https://github.com/GuilleX7) | [5]
-|
-| [Muñoz Pérez, Carmen Mª](https://github.com/CarmenMariaMP) | [5]
-|
-| [Rodríguez Pérez, Francisco](https://github.com/Fco-bit) | [5] 
-|
+| [Castro Bonilla, Maria](https://github.com/nombredeusuariodegithub) | [5] |
+| [Diz Gil, Guillermo](https://github.com/nombredeusuariodegithub) | [5] |
+| [Muñoz Pérez Carmen Mª](https://github.com/nombredeusuariodegithub) | [5] |
+| [Rodríguez Pérez, Francisco](https://github.com/nombredeusuariodegithub) | [5] |
 
 ## Enlaces de interés:
 * [repositorio de código](https://github.com/CarmenMariaMP/evidentia) 
