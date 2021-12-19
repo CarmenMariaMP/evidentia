@@ -1,14 +1,8 @@
-on:
-  push:
-    branches:
-      - master
-      - develop
-  pull_request:
-
+on: push
 name: CI
 jobs:
   phpunit:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     services:
       mysql:
@@ -23,15 +17,18 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
+      - name: Verify MySQL connection from host
+        run: |
+          sudo apt-get install -y mysql-client
+          mysql --host 127.0.0.1 --port 33306 -uroot -psecret -e "GRANT ALL ON *.*  TO 'homestead'@'%' identified by 'secret'; FLUSH PRIVILEGES;"
+
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
 
       - name: Install composer dependencies
         run: |
-          rm composer.lock
           composer install --no-scripts
-          composer update
 
       - name: Prepare Laravel Application
         run: |
@@ -43,14 +40,3 @@ jobs:
 
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
-
-  deployment:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy Stage
-        uses: actions/checkout@v1
-        with:
-          url: "https://www.evidentia.cloud/deploy"
-          method: "POST"
-          username: ${{ secrets.EVIDENTIA_DEPLOY_USER }}
-          password: ${{ secrets.EVIDENTIA_DEPLOY_PASSWORD }}
