@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => '{instance}'], function () {
+    Route::group(['prefix' => 'v1'], function () {
+        Route::group(['prefix' => 'auth'], function () {
+            Route::group(['middleware' => 'jwt.verify'], function () {
+                Route::post('logout',  [AuthController::class, "logout"]);
+                Route::post('me',  [AuthController::class, "me"]);
+                Route::post('refresh',  [AuthController::class, "refresh"]);
+            });
+            Route::post('login', [AuthController::class, "login"]);
+        });
+    });
+});
