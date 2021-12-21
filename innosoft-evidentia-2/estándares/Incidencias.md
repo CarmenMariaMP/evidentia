@@ -1,4 +1,4 @@
-# Gestión del cambio
+# Gestión de incidencias
 
 Las incidencias  son gestionadas mediante las issues de GitHub.
 
@@ -36,10 +36,10 @@ La prioridad sólo la puede etiquetar un miembro del equipo de desarrollo. Por t
 
 En cuanto a las prioridades de las issues, se han gestionado mediante el uso de las siguientes etiquetas/tags:
 
-* priority:critical: La issue debe resolverse inmediatamente-  Partes significativas del código fuente están rotas, evitando el funcionamiento de operaciones clave-.
-* priority:high: La issue debe resolverse lo antes posible- Partes del código fuente están impidiendo el correcto funcionamiento de forma seria-.
-* priority:medium: La issue tiene cierta importancia y es mejor que se resuelva  rápido- Problemas que están impidiendo un comportamiento anunciado, pero la aplicación sigue siendo viable-.
-* priority:low: La issue no es demasiado importante- Pérdida menor de función y comportamiento molesto en general-.
+* priority -> critical: La issue debe resolverse inmediatamente-  Partes significativas del código fuente están rotas, evitando el funcionamiento de operaciones clave-.
+* priority -> high: La issue debe resolverse lo antes posible- Partes del código fuente están impidiendo el correcto funcionamiento de forma seria-.
+* priority -> medium: La issue tiene cierta importancia y es mejor que se resuelva  rápido- Problemas que están impidiendo un comportamiento anunciado, pero la aplicación sigue siendo viable-.
+* priority -> low: La issue no es demasiado importante- Pérdida menor de función y comportamiento molesto en general-.
 
 
 Finalmente, cada issue debe tener al menos un miembro del equipo asignado en función de la dificultad o prioridad de la misma.
