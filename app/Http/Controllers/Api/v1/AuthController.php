@@ -3,30 +3,30 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'string'],
+            'password' => ['required', 'string']
+        ]);
 
-        if (Validator::make($credentials, [
-            'email' => 'required|string',
-            'password' => 'required|string'
-        ])->fails()) {
+        if ($validator->fails()) {
             return response()->json([
                 'status' => false,
-                'error' => 'Some fields are missing or invalid'
+                'error' => $validator->messages()
             ], 200);
         }
 
-        $attemptedUser = User::where('email', '=', $credentials['email'])->first();
+        $attemptedUser = User::where('email', '=', $request['email'])->first();
 
-        if (!$attemptedUser || !Hash::check($credentials['password'], $attemptedUser->password)) {
+        if (!$attemptedUser || !Hash::check($request['password'], $attemptedUser->password)) {
             return response()->json([
                 'status' => false,
                 'error' => 'Invalid credentials',
