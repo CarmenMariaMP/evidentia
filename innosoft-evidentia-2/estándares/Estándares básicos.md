@@ -1,9 +1,9 @@
 # Política de commits
 Para la realización de cualquier commit se debe seguir el siguiente estándar:
 
-* <título>: (título conciso de no más de 40 carácteres)
-* <type>: (documentación, hotfix, backend, frontend, release)
-* <body>: (descripción breve de no más de 200 carácteres)
+* título: (título conciso de no más de 40 carácteres).
+* type: (documentación, hotfix, backend, frontend, release).
+* body: (descripción breve de no más de 200 carácteres).
 
 # Estrategia de ramas
 La estrategia de ramas que se va a seguir es bastante simple. Esta está basada en la estrategia de ramas GitFlow. A continuación se detalla los aspectos a tener en cuenta:
