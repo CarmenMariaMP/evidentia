@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\CommiteeController;
+use App\Http\Controllers\Api\v1\EvidenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,24 @@ Route::group(['prefix' => '{instance}'], function () {
             Route::get('commitee/{id}', [CommiteeController::class, 'getById']);
             Route::post('commitee/{id}', [CommiteeController::class, 'updateById']);
             Route::delete('commitee/{id}', [CommiteeController::class, 'deleteById']);
+
+            Route::get('evidence', [EvidenceController::class, 'getAll']);
+            Route::put('evidence', [EvidenceController::class, 'create']);
+            Route::get('evidence/{id}', [EvidenceController::class, 'getById']);
+            Route::post('evidence/{id}', [EvidenceController::class, 'updateById']);
+            Route::delete('evidence/{id}', [EvidenceController::class, 'deleteById']);
+
+            Route::get('user', [UserController::class, 'getAll']);
+            Route::put('user', [UserController::class, 'create']);
+            Route::get('user/{id}', [UserController::class, 'getById']);
+            Route::post('user/{id}', [UserController::class, 'updateById']);
+            Route::delete('user/{id}', [UserController::class, 'deleteById']);
+
+            Route::get('meeting', [MeetingController::class, 'getAll']);
+            Route::put('meeting', [MeetingController::class, 'create']);
+            Route::get('meeting/{id}', [MeetingController::class, 'getById']);
+            Route::post('meeting/{id}', [MeetingController::class, 'updateById']);
+            Route::delete('meeting/{id}', [MeetingController::class, 'deleteById']);
         });
     });
 });
