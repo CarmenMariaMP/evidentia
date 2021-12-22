@@ -23,8 +23,8 @@ class EvidenceController extends Controller
             'comittee_id' => ['required', 'numeric'],
             'points_to' => ['required', 'numeric'],
             'status' => ['required', 'numeric'],
-            'stamp' => ['required', 'numeric'],
-            'rand' => ['required', 'numeric']
+            'stamp' => ['required', 'string'],
+            'rand' => ['required', 'boolean']
         ]);
 
         if ($validator->fails()) {
@@ -33,7 +33,7 @@ class EvidenceController extends Controller
             ]);
         }
 
-        $committee = Evidence::create([
+        $evidence = Evidence::create([
             'id' => $request['id'],
             'title' => $request['title'],
             'description' => $request['description'],
@@ -46,7 +46,7 @@ class EvidenceController extends Controller
             'rand' => $request['rand']
         ]);
 
-        return response()->json($committee);
+        return response()->json($evidence);
     }
 
     public function getById(Request $request) {
@@ -63,8 +63,8 @@ class EvidenceController extends Controller
             'comittee_id' => ['required', 'numeric'],
             'points_to' => ['required', 'numeric'],
             'status' => ['required', 'numeric'],
-            'stamp' => ['required', 'numeric'],
-            'rand' => ['required', 'numeric']
+            'stamp' => ['required', 'string'],
+            'rand' => ['required', 'boolean']
         ]);
 
         if ($validator->fails()) {
@@ -73,14 +73,14 @@ class EvidenceController extends Controller
             ]);
         }
 
-        $committee = Evidence::find($request['id']);
-        if (!$committee) {
+        $evidence = Evidence::find($request['id']);
+        if (!$evidence) {
             return response()->json([
                 'error' => ['id' => 'Invalid id']
             ]);
         }
 
-        $committee->update([
+        $evidence->update([
             'id' => $request['id'],
             'title' => $request['title'],
             'description' => $request['description'],
@@ -93,18 +93,18 @@ class EvidenceController extends Controller
             'rand' => $request['rand']
         ]);
 
-        return response()->json($committee);
+        return response()->json($evidence);
     }
 
     public function deleteById(Request $request) {
-        $committee = Evidence::find($request['id']);
-        if (!$committee) {
+        $evidence = Evidence::find($request['id']);
+        if (!$evidence) {
             return response()->json([
                 'error' => ['id' => 'Invalid id']
             ]);
         }
 
-        $committee->delete();
-        return response()->json($committee);
+        $evidence->delete();
+        return response()->json($evidence);
     }
 }
