@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\CommiteeController;
 use App\Http\Controllers\Api\v1\EvidenceController;
+use App\Http\Controllers\Api\v1\UserController;
+use App\Http\Controllers\Api\v1\MeetingController;
+
 
 /*
 |--------------------------------------------------------------------------
