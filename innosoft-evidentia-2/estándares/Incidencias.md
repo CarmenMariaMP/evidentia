@@ -24,14 +24,12 @@ Una incidencia puede ser de varios tipos a la vez, por lo que Github permite sel
 
 ### Estado de la incidencia
 
-Hay que gestionar las incidencias de manera ordenada con estados predeterminados.
+Hay que gestionar las incidencias de manera ordenada con estados predeterminados. Para ello se utilizará un tablero con los siguientes estados:
 
-* New: cuando se crea la incidencia se debe indicar que el estado es New.
-* Rejected: la incidencia ha sido rechazada.
-* Accepted: la incidencia ha sido aceptar, por tanto, alguien del equipo de desarrollo se encargará de tratar la incidencia.
-* Fixed: el desarrollador ha finalizado el trabajo y la incidencia está pendiente de ser verificada.
-* In process: alguien del equipo de desarrollo ya ha comenzado a trabajar en la incidencia.
-* Verified: la incidencia ya ha sido verificada.
+* To do: cuando se crea la incidencia se debe indicar que el estado es To do.
+* In progress: alguien del equipo de desarrollo ya ha comenzado a trabajar en la incidencia.
+* In review: la incidencia ha sido resuelta y esta pendiente de revisión. Si el revisor considera el trabajo no aceptable, la incidencia volverá al estado "In progress".
+* Done: la incidencia ha sido realizada y aprobada, por lo que está terminada.
 
 Una incidencia sólo podrá tener un estado en un momento determinado. A lo largo del proceso por el que pasa la incidencia, esta pasará por varios estados.
 
