@@ -244,7 +244,17 @@
         });
          */
 
-        $('table').DataTable({
+
+        $('.statistics').DataTable({
+            "paging": false,
+            "lengthChange": true,
+            "searching": false,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false,
+        });
+
+        $('table').not('.statistics').DataTable({
             "paging": true,
             "lengthChange": true,
             "searching": true,
@@ -252,6 +262,9 @@
             "info": true,
             "autoWidth": false,
         });
+
+
+
 
         $('.todo-list').sortable({
             placeholder: 'sort-highlight',

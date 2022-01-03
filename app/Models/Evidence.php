@@ -133,6 +133,14 @@ class Evidence extends Model
         }
         return $result;
     }
+    public static function get_evidences_by_status(){
+        $result = array();
+        array_push($result, array('Borrador' => count(EVIDENCE::evidences_draft())));
+        array_push($result, array('Pendientes de aceptación' => count(EVIDENCE::evidences_pending())));
+        array_push($result, array('Aceptadas' => count(EVIDENCE::evidences_accepted())));
+        array_push($result, array('Rechazadas' => count(EVIDENCE::evidences_rejected())));
+        return $result;
+    }
 
     public static function evidences_draft() {
         return Evidence::where('status','=', 'DRAFT')->where('points_to','=',null)->orderByDesc('updated_at')->get();

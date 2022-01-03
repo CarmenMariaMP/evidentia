@@ -24,7 +24,7 @@ class DashBoardController extends Controller
         $this->middleware('checkroles:LECTURE');
     }
 
-    public function stadistic_list()
+    public function statistic_list()
     {
         $instance = \Instantiation::instance();
         $total_evidences = Evidence::get_evidences_count();
@@ -37,12 +37,12 @@ class DashBoardController extends Controller
             $result[0]['comittee_id'] = $get_all_committees[$i]['name'];
             array_push($evidences_by_commitee, $result[0]);
         }
+        $evidences_by_status = Evidence::get_evidences_by_status();
 
 
-
-        //return response()->json($evidences_by_commitee);
+        //return response()->json($evidences_by_status[0]);
 
         return view('dashboard.statistics',
-            ['instance' => $instance, 'total_evidences' => $total_evidences, 'evidences_by_commitee' => $evidences_by_commitee]);
+            ['instance' => $instance, 'total_evidences' => $total_evidences, 'evidences_by_commitee' => $evidences_by_commitee, 'evidences_by_status' => $evidences_by_status]);
     }
 }
