@@ -65,6 +65,10 @@ class Comittee extends Model
         return $this->hasMany('App\Models\Bonus')->orderByDesc('created_at');
     }
 
+    public static function get_all_comittees(){
+        return Comittee::get();
+    }
+
     public function can_be_removed()
     {
         /**

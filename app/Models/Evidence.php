@@ -122,6 +122,18 @@ class Evidence extends Model
         return Evidence::where('status','!=', 'DRAFT')->orderByDesc('updated_at')->get();
     }
 
+    public static function get_evidences_count() {
+        return Evidence::count();
+    }
+    public static function get_evidences_by_group($comittee_id) {
+        $result = Evidence::select('comittee_id', Evidence::raw('count(*) as total'))->where('comittee_id' ,'=', $comittee_id)->groupBy('comittee_id')
+        ->get();
+        if(count($result) == 0){
+            $result = array(0 => array('comittee_id'=> $comittee_id, 'total' => 0));
+        }
+        return $result;
+    }
+
     public static function evidences_draft() {
         return Evidence::where('status','=', 'DRAFT')->where('points_to','=',null)->orderByDesc('updated_at')->get();
     }
