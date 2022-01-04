@@ -19,6 +19,7 @@ class SelectDatabaseApi
     public function handle($request, Closure $next)
     {
         $param = $request->segment(2);
+        \Instantiation::set_default_central();
         $instance = Instance::where('route', $param)->first();
 
         if ($instance == null) {
