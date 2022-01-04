@@ -40,6 +40,8 @@ jobs:
           php artisan migrate
           php artisan db:seed
           php artisan db:seed --class=InstancesTableSeeder
+          php artisan jwt:secret
+          php artisan config:cache
 
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
