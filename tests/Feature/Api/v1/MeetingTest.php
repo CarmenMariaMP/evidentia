@@ -132,7 +132,7 @@ class MeetingTest extends TestCase
 
     public function testGetMeetingFail()
     {
-        $this->testCreateMeetingSuccess();
+        $this->createMeeting();
 
         $response = $this->getJson('/api/21/v1/meeting/-1', [
             'Authorization' => 'Bearer ' . $this->login()
