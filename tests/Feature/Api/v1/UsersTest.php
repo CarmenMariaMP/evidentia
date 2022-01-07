@@ -5,7 +5,7 @@ namespace Tests\Feature\Api\v1;
 use Tests\TestCase;
 use Illuminate\Testing\Fluent\AssertableJson;
 
-class CommitteeTest extends TestCase
+class UsersTest extends TestCase
 {
     /**
      * Functional testing for the users of the REST API.
@@ -23,12 +23,12 @@ class CommitteeTest extends TestCase
     public function createUser()
     {
         return $this->putJson('/api/21/v1/user', [
-            'surname' => 'alum',
+            'surname' => 1,
             'name' => 'alum',
-            'username' => 'alumno3',
+            'username' => 2,
             'password' => 'alumno3',
             'email' => 'alumno3@alum.us.es',
-            'block' => 'alumno3',
+            'block' => 0,
             'biography' => 'alumno3',
             'clean_name' => 'alum',
             'clean_surname' => 'alum'
@@ -39,12 +39,12 @@ class CommitteeTest extends TestCase
     public function testCreateUserSuccess()
     {
         $response = $this->putJson('/api/21/v1/user', [
-            'surname' => 'alum',
+            'surname' => 1,
             'name' => 'alum',
-            'username' => 'alumno3',
+            'username' => 2,
             'password' => 'alumno3',
             'email' => 'alumno3@alum.us.es',
-            'block' => 'alumno3',
+            'block' => 0,
             'biography' => 'alumno3',
             'clean_name' => 'alum',
             'clean_surname' => 'alum'
@@ -55,25 +55,25 @@ class CommitteeTest extends TestCase
         $response
             ->assertStatus(200)
             ->assertJson([
-            'surname' => 'alum',
-            'name' => 'alum',
-            'username' => 'alumno3',
-            'password' => 'alumno3',
-            'email' => 'alumno3@alum.us.es',
-            'block' => 'alumno3',
-            'biography' => 'alumno3',
-            'clean_name' => 'alum',
-            'clean_surname' => 'alum'
+                'surname' => 1,
+                'name' => 'alum',
+                'username' => 2,
+                'password' => 'alumno3',
+                'email' => 'alumno3@alum.us.es',
+                'block' => 0,
+                'biography' => 'alumno3',
+                'clean_name' => 'alum',
+                'clean_surname' => 'alum'
             ]);
     }
     public function testCreateUserFail()
     {
         $response = $this->putJson('/api/21/v1/user', [
-            'surname' => 'alum',
-            'username' => 'alumno3',
+            'surname' => 1,
+            'username' => 2,
             'password' => 'alumno3',
             'email' => 'alumno3@alum.us.es',
-            'block' => 'alumno3',
+            'block' => 0,
             'biography' => 'alumno3',
             'clean_name' => 'alum',
             'clean_surname' => 'alum'
@@ -165,12 +165,12 @@ class CommitteeTest extends TestCase
     {
         $user = $this->createUser();
         $updatedUser = [
-            'surname' => 'alumno',
+            'surname' => 3,
             'name' => 'alumno',
-            'username' => 'alumnoupdate',
+            'username' => 4,
             'password' => 'alumnoalumno',
             'email' => 'alumno@alum.us.es',
-            'block' => 'alumno',
+            'block' => 0,
             'biography' => 'alumno',
             'clean_name' => 'alumno',
             'clean_surname' => 'alumno'
@@ -200,11 +200,11 @@ class CommitteeTest extends TestCase
     {
         $user = $this->createUser();
         $updatedUser = [
-            'surname' => 'alumno',
+            'surname' => 3,
             'name' => 'alumno',
-            'username' => 'alumnoupdate',
+            'username' => 4,
             'password' => 'alumnoalumno',
-            'block' => 'alumno',
+            'block' => 0,
             'biography' => 'alumno',
             'clean_name' => 'alumno',
             'clean_surname' => 'alumno'
