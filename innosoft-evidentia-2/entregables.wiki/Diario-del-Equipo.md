@@ -11,9 +11,9 @@
 # Resumen de total de reuniones empleadas en el equipo
 * Total de reuniones: 12
 * Total de reuniones presenciales: 2
-* Total de reuniones virtuales: 10
+* Total de reuniones virtuales: 11
 * Total de tiempo empleado en reuniones presenciales: 35 min
-* Total de tiempo empleado en reuniones virtuales: 8h 50min
+* Total de tiempo empleado en reuniones virtuales: 9h 30min
 
 # Actas de acuerdos de las reuniones
 ## ACTA 2021-01 (01 de octubre)
@@ -101,3 +101,9 @@ Reunión de seguimiento del trabajo.
 * Acuerdos tomados:
     * Acuerdo 2021-12-01 - Cambio de procesos: se ha acordado que para la implementación de la nueva funcionalidad y del resto de tareas que quedan se adaptarán nuevos procesos. Se ha cambiado ligeramente la estrategia de ramas para utilizar github para la revisión de tareas de forma más profesional y controlada. Por ello, ahora todas las tareas deberán ser revisadas por otro miembro del equipo de manera obligatoria para poder mergear los cambios a la rama pertinente.
     * Acuerdo 2021-12-02 - Gestión de incidencias: la gestión de incidencias se había comprendido mal, por lo que no se había hecho de forma correcta. Así se actualizará la plantilla de issues para que se ajuste a los procesos actuales del equipo.
+## ACTA 2021-13 (03 de enero)
+Reunión de seguimiento del trabajo. Se ha revisado el desempeño de los estándares en el desarrollo del trabajo y se han solventado algunas dudas entre los miembros del equipo. Además se han asignado varias tareas.
+* Duración: 40 min
+* Asistentes: María, Guillermo, Carmen Mª, Francisco
+* Acuerdos tomados:
+    * Acuerdo 2021-13-01 - Asignación tareas: se han asignado todas las tareas que quedan por realizar, menos los tests del dashboard.
