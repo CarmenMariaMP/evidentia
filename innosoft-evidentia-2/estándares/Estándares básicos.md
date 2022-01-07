@@ -12,7 +12,7 @@ La estrategia de ramas que se va a seguir es bastante simple. Esta está basada 
 
 * Rama "documentation": en esta rama se subirán todos los documentos que se realizarán relacionados con el proyecto.
 
-* Rama "miembro": cada vez que un miembro quiera trabajar en una funcionalidad lo hará en esta rama. Una vez tenga los cambios pertinentes, hará un Pull Request a la rama de la funcionalidad. El nombre de esta rama será el uvus de la persona.
+* Rama "miembro_funcionalidad": cada vez que un miembro quiera trabajar en una funcionalidad creará una rama con su uvus e indicando la funcionalidad en la que va a trabajar. Una vez tenga los cambios pertinentes, hará un Pull Request a la rama de la funcionalidad. 
 
 * Ramas "feature/X": estas se crearán cada vez que se vaya a realizar una nueva funcionalidad. El nombre será la palabra "feature/X", donde a X serán una o dos palabras claves que describan la funcionalidad a desarrollar. Cada miembro del equipo realizará un Pull Request a esta rama desde su propia rama cada vez que quieran incrementar aspectos de esa funcionalidad. 
 
