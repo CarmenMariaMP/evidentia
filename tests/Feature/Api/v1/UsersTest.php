@@ -24,30 +24,40 @@ class UsersTest extends TestCase
     {
         return $this->putJson('/api/21/v1/user', [
             'surname' => 1,
-            'name' => 'alum',
-            'username' => 2,
-            'password' => 'alumno3',
-            'email' => 'alumno3@alum.us.es',
-            'block' => 0,
+            'name' => 'alum34',
+            'username' => 'alum1999999',
+            'password' => 324322,
+            'email' => 'alumno1999999@alumno1.com',
+            'block' => false,
             'biography' => 'alumno3',
-            'clean_name' => 'alum',
-            'clean_surname' => 'alum'
+            'clean_name' => 'alum3',
+            'clean_surname' => 'alum3'
         ], [
             'Authorization' => 'Bearer ' . $this->login()
         ])->decodeResponseJson();
     }
+
+    public function deleteUser($user){
+
+        $this->deleteJson('/api/21/v1/user/' . $user['id'], [], [
+            'Authorization' => 'Bearer ' . $this->login()
+        ]);
+
+    }
+
+
     public function testCreateUserSuccess()
     {
         $response = $this->putJson('/api/21/v1/user', [
             'surname' => 1,
-            'name' => 'alum',
-            'username' => 2,
-            'password' => 'alumno3',
-            'email' => 'alumno3@alum.us.es',
+            'name' => 'alum3',
+            'username' => 'alum4',
+            'password' => 324322,
+            'email' => 'alumno5@alumno1.com',
             'block' => 0,
             'biography' => 'alumno3',
-            'clean_name' => 'alum',
-            'clean_surname' => 'alum'
+            'clean_name' => 'alum3',
+            'clean_surname' => 'alum3'
         ], [
             'Authorization' => 'Bearer ' . $this->login()
         ]);
@@ -56,27 +66,29 @@ class UsersTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'surname' => 1,
-                'name' => 'alum',
-                'username' => 2,
-                'password' => 'alumno3',
-                'email' => 'alumno3@alum.us.es',
+                'name' => 'alum3',
+                'username' => 'alum4',
+                'email' => 'alumno5@alumno1.com',
                 'block' => 0,
                 'biography' => 'alumno3',
-                'clean_name' => 'alum',
-                'clean_surname' => 'alum'
+                'clean_name' => 'alum3',
+                'clean_surname' => 'alum3'
             ]);
+            $this -> deleteUser($response);
+
     }
     public function testCreateUserFail()
     {
         $response = $this->putJson('/api/21/v1/user', [
             'surname' => 1,
-            'username' => 2,
-            'password' => 'alumno3',
-            'email' => 'alumno3@alum.us.es',
+
+            'username' => 'alum3',
+            'password' => 324322,
+            'email' => 'alumno1232@alumno1.com',
             'block' => 0,
             'biography' => 'alumno3',
-            'clean_name' => 'alum',
-            'clean_surname' => 'alum'
+            'clean_name' => 'alum3',
+            'clean_surname' => 'alum3'
         ], [
             'Authorization' => 'Bearer ' . $this->login()
         ]);
@@ -124,7 +136,6 @@ class UsersTest extends TestCase
     public function testGetUserSuccess()
     {
         $user = $this->createUser();
-
         $response = $this->getJson('/api/21/v1/user/' . $user['id'], [
             'Authorization' => 'Bearer ' . $this->login()
         ]);
@@ -137,7 +148,6 @@ class UsersTest extends TestCase
                     'surname' => $user['surname'],
                     'name' => $user['name'],
                     'username' => $user['username'],
-                    'password' => $user['password'],
                     'email' => $user['email'],
                     'block' => $user['block'],
                     'biography' => $user['biography'],
@@ -145,12 +155,12 @@ class UsersTest extends TestCase
                     'clean_surname' => $user['clean_surname'],
 
                 ]
-            );
+                );
+        $this -> deleteUser($user);
     }
 
     public function testGetUserFail()
     {
-        $this->testCreateUserSuccess();
 
         $response = $this->getJson('/api/21/v1/user/-1', [
             'Authorization' => 'Bearer ' . $this->login()
@@ -167,10 +177,10 @@ class UsersTest extends TestCase
         $updatedUser = [
             'surname' => 3,
             'name' => 'alumno',
-            'username' => 4,
-            'password' => 'alumnoalumno',
-            'email' => 'alumno@alum.us.es',
-            'block' => 0,
+            'username' => 'alumno2002',
+            'password' => 4,
+            'email' => 'alumno2002@alumno.com',
+            'block' => false,
             'biography' => 'alumno',
             'clean_name' => 'alumno',
             'clean_surname' => 'alumno'
@@ -183,17 +193,17 @@ class UsersTest extends TestCase
             ->assertStatus(200)
             ->assertJson(
                 [
-                    'surname' => $user['surname'],
-                    'name' => $user['name'],
-                    'username' => $user['username'],
-                    'password' => $user['password'],
-                    'email' => $user['email'],
-                    'block' => $user['block'],
-                    'biography' => $user['biography'],
-                    'clean_name' => $user['clean_name'],
-                    'clean_surname' => $user['clean_surname'],
+                    'surname' => $updatedUser['surname'],
+                    'name' => $updatedUser['name'],
+                    'username' => $updatedUser['username'],
+                    'email' => $updatedUser['email'],
+                    'block' => $updatedUser['block'],
+                    'biography' => $updatedUser['biography'],
+                    'clean_name' => $updatedUser['clean_name'],
+                    'clean_surname' => $updatedUser['clean_surname'],
                 ]
             );
+        $this -> deleteUser($response);
     }
 
     public function testUpdateUserFail()
@@ -201,9 +211,9 @@ class UsersTest extends TestCase
         $user = $this->createUser();
         $updatedUser = [
             'surname' => 3,
-            'name' => 'alumno',
-            'username' => 4,
-            'password' => 'alumnoalumno',
+            'name' => 'alumno2002',
+            'username' => 'alumno2002',
+            'password' => 4,
             'block' => 0,
             'biography' => 'alumno',
             'clean_name' => 'alumno',
@@ -220,6 +230,7 @@ class UsersTest extends TestCase
                 $json->whereType('error', 'array')
                     ->whereType('error.email', 'array')
             );
+        $this -> deleteUser($user);
     }
 
 
@@ -233,13 +244,15 @@ class UsersTest extends TestCase
 
         $response
             ->assertStatus(200);
+
+
+        $this -> deleteUser($user);
     }
 
 
 
     public function testDeleteUserFail()
     {
-        $user = $this->createUser();
 
         $response = $this->deleteJson('/api/21/v1/user/-45', [], [
             'Authorization' => 'Bearer ' . $this->login()
@@ -252,6 +265,7 @@ class UsersTest extends TestCase
                 $json->whereType('error', 'array')
                     ->whereType('error.id', 'string')
             );
+
     }
 }
 
