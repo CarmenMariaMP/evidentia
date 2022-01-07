@@ -113,8 +113,6 @@ class CommitteeTest extends TestCase
 
     public function testGetCommitteeFail()
     {
-        $this->testGetCommitteeSuccess();
-
         $response = $this->getJson('/api/21/v1/commitee/-1', [
             'Authorization' => 'Bearer ' . $this->login()
         ]);
