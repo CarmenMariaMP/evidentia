@@ -21,8 +21,8 @@ class DashboardController extends Controller
     public function numberOfTotalmeetings()
     {
         $instance = \Instantiation::instance();
-        $total_meeting = Meeting::get_meeting_count();
-
+        $meetings= Meeting::meetings();
+        $meetings_count = $meetings->count();
         $get_all_committees = Comittee::get_all_comittees();
         $meeting_by_commitee = array();
         for ($i = 0; $i < count($get_all_committees); $i++) {
@@ -31,5 +31,12 @@ class DashboardController extends Controller
             $result[0]['comittee_id'] = $get_all_committees[$i]['name'];
             array_push($meeting_by_commitee, $result[0]);
         }
+
+        return view('dashboard.statistics',
+        ['instance' => $instance, 'meetings_count' => $meetings_count, 'meeting_by_commitee' => $meeting_by_commitee]);
+
+        //return response()->json($meeting_by_commitee);
+
+
     }
 }
