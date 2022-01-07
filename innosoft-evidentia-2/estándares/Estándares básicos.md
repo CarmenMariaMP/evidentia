@@ -1,7 +1,7 @@
 # Política de commits
 Para la realización de cualquier commit se debe seguir el siguiente estándar:
 
-* título: (título conciso de no más de 40 carácteres).
+* title: (título conciso de no más de 40 carácteres).
 * type: (documentación, hotfix, backend, frontend, release, test).
 * body: (descripción breve de no más de 200 carácteres).
 
