@@ -28,7 +28,7 @@
 
                             <tr>
                                 <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Reuniones realizadas en este año escolar</td>
-                                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$total_meeting}}</td>
+                                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meetings_count}}</td>
                             </tr>
                                 @foreach($meeting_by_commitee as $meeting_commitee)
                                 <tr>

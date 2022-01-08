@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Evidence;
+use App\Models\Meeting;
 use App\Models\User;
+use App\Models\Comittee;
 
 
 use Illuminate\Http\Request;
@@ -18,11 +19,10 @@ class DashboardController extends Controller
         $this->middleware('checkroles:LECTURE');
     }
 
-    public function numberOfTotalmeetings()
+    public function stadistic_list()
     {
         $instance = \Instantiation::instance();
-        $meetings= Meeting::meetings();
-        $meetings_count = $meetings->count();
+        $meetings_count= Meeting::get_meeting_count();
         $get_all_committees = Comittee::get_all_comittees();
         $meeting_by_commitee = array();
         for ($i = 0; $i < count($get_all_committees); $i++) {
