@@ -27,13 +27,6 @@ class Meeting extends Model
         return $this->hasOne('App\Models\MeetingMinutes');
     }
 
-
-
-    public static function get_meeting_count()
-    {
-        return Meeting::count();
-    }
-
     public static function get_meeting_by_comite($comittee_id)
     {
         $result = Meeting::select('comittee_id', Meeting::raw('count(*) as total'))->where('comittee_id', '=', $comittee_id)->groupBy('comittee_id')
