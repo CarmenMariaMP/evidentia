@@ -8,7 +8,7 @@ class Comittee extends Model
 {
     protected $table = 'comittees';
 
-    protected $fillable = ["icon","name"];
+    protected $fillable = ["icon", "name"];
 
     public function subcomittees()
     {
@@ -20,24 +20,29 @@ class Comittee extends Model
         return $this->hasMany('App\Models\Evidence');
     }
 
-    public function evidences_not_draft() {
-        return $this->evidences()->where('status','!=', 'DRAFT')->orderByDesc('updated_at');
+    public function evidences_not_draft()
+    {
+        return $this->evidences()->where('status', '!=', 'DRAFT')->orderByDesc('updated_at');
     }
 
-    public function evidences_draft() {
-        return $this->evidences()->where('status','=', 'DRAFT')->orderByDesc('updated_at');
+    public function evidences_draft()
+    {
+        return $this->evidences()->where('status', '=', 'DRAFT')->orderByDesc('updated_at');
     }
 
-    public function evidences_pending() {
-        return $this->evidences()->where('status','=', 'PENDING')->orderByDesc('updated_at');
+    public function evidences_pending()
+    {
+        return $this->evidences()->where('status', '=', 'PENDING')->orderByDesc('updated_at');
     }
 
-    public function evidences_accepted() {
-        return $this->evidences()->where('status','=', 'ACCEPTED')->orderByDesc('updated_at');
+    public function evidences_accepted()
+    {
+        return $this->evidences()->where('status', '=', 'ACCEPTED')->orderByDesc('updated_at');
     }
 
-    public function evidences_rejected() {
-        return $this->evidences()->where('status','=', 'REJECTED')->orderByDesc('updated_at');
+    public function evidences_rejected()
+    {
+        return $this->evidences()->where('status', '=', 'REJECTED')->orderByDesc('updated_at');
     }
 
     public function coordinators()
@@ -76,30 +81,29 @@ class Comittee extends Model
          */
 
         // 1)
-        if($this->coordinators->count() > 0 || $this->secretaries->count() > 0){
+        if ($this->coordinators->count() > 0 || $this->secretaries->count() > 0) {
             return false;
         }
 
         // 2)
-        if($this->evidences->count() > 0){
+        if ($this->evidences->count() > 0) {
             return false;
         }
 
         // 3)
-        if($this->meetings->count() > 0){
+        if ($this->meetings->count() > 0) {
             return false;
         }
         return true;
-
     }
 
     public function get_all_meeting_requests(): \Illuminate\Support\Collection
     {
         $collection = collect();
 
-        foreach($this->secretaries as $secretary){
+        foreach ($this->secretaries as $secretary) {
             $meeting_requests = $secretary->meeting_requests;
-            foreach($meeting_requests as $meeting_request){
+            foreach ($meeting_requests as $meeting_request) {
                 $collection->push($meeting_request);
             }
         }
@@ -111,13 +115,17 @@ class Comittee extends Model
     {
         $collection = collect();
 
-        foreach($this->secretaries as $secretary){
+        foreach ($this->secretaries as $secretary) {
             $meeting_minutes = $secretary->meeting_minutes;
-            foreach($meeting_minutes as $mm){
+            foreach ($meeting_minutes as $mm) {
                 $collection->push($mm);
             }
         }
 
         return $collection;
+    }
+    public static function get_all_comittees()
+    {
+        return Comittee::get();
     }
 }
