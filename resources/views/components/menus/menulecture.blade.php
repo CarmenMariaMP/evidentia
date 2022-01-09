@@ -4,7 +4,9 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
             <li class="nav-header">HERRAMIENTAS DEL PROFESOR</li>
+            <x-li route="lecture.dashboard.statistics" icon='fas fa-cogs' name="Estadísticas"/>
             <x-li route="lecture.config" icon='fas fa-cogs' name="Configurar curso"/>
+
 
             <x-li route="lecture.user.list" secondaries="lecture.user.management,lecture.user.management" icon='nav-icon fas fa-users-cog' name="Gestionar alumnos"/>
             <x-li route="lecture.evidence.list" icon='fas fa-clipboard-check' name="Gestionar evidencias"/>

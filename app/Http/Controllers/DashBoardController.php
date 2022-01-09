@@ -41,8 +41,17 @@ class DashBoardController extends Controller
 
 
         //return response()->json($evidences_by_status[0]);
+        return ['total_evidences' => $total_evidences,'evidences_by_commitee' =>$evidences_by_commitee,'evidences_by_status' =>$evidences_by_status];
+    }
 
-        return view('dashboard.statistics',
-            ['instance' => $instance, 'total_evidences' => $total_evidences, 'evidences_by_commitee' => $evidences_by_commitee, 'evidences_by_status' => $evidences_by_status]);
+
+    public function showStatistics()
+    {
+        $instance = \Instantiation::instance();
+
+        return view('dashboard.statistics', [
+            'instance' => $instance,
+            'evidences' => $this->statistic_list()
+        ]);
     }
 }
