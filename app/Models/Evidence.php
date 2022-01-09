@@ -118,6 +118,10 @@ class Evidence extends Model
         }
     }
 
+    public static function all_evidences() {
+        return Evidence::where('status','=', '?')->orderByDesc('updated_at')->get();
+    }
+
     public static function evidences_not_draft() {
         return Evidence::where('status','!=', 'DRAFT')->orderByDesc('updated_at')->get();
     }

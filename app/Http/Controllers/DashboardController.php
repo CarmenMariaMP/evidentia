@@ -53,13 +53,24 @@ class DashboardController extends Controller
         ];
     }
 
+    public function getUsersStatistics(){
+        $student_users= User::student_users();
+
+        return [
+            'student_users_count' => $student_users->count(),
+            'participations' => User::student_users_by_participation(),
+        ];
+    }
+
+
     public function showStatistics()
     {
         $instance = \Instantiation::instance();
 
         return view('dashboard.statistics', [
             'instance' => $instance,
-            'hours' => $this->getHoursStatistics()
+            'hours' => $this->getHoursStatistics(),
+            'users' => $this->getUsersStatistics()
         ]);
     }
 }
