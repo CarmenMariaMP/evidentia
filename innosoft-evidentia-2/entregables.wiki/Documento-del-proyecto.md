@@ -50,7 +50,91 @@ se explicará el sistema desarrollado desde un punto de vista funcional y arquit
 Debe dar una visión general del proceso que ha seguido enlazándolo con las herramientas que ha utilizado. Ponga un ejemplo de un cambio que se proponga al sistema y cómo abordaría todo el ciclo hasta tener ese cambio en producción. Los detalles de cómo hacer el cambio vendrán en el apartado correspondiente. 
 
 ### Entorno de desarrollo (800 palabras aproximadamente)
-debe explicar cuál es el entorno de desarrollo que ha usado, cuáles son las versiones usadas y qué pasos hay que seguir para instalar tanto su sistema como los subsistemas relacionados para hacer funcionar el sistema al completo. Si se han usado distintos entornos de desarrollo por parte de distintos miembros del grupo, también debe referenciarlo aquí. 
+El entorno de desarrollo de la aplicación está compuesto por contenedores Docker orquestados por Docker-compose, que es una de las dos estrategias presentadas por el proyecto original de Evidentia, siendo la otra Homestead, pensada para utilizarla junto a Vagrant. Dado que Evidentia es un proyecto Laravel, podemos encontrar un subproyecto llamado Laradock que consiste en un conjunto de imágenes y contenedores de Docker que nos permiten desplegar un entorno con todas las herramientas necesarias para aprovechar el potencial de Laravel al máximo ya preparadas.
+
+Para el despliegue en local, se ha usado o bien una máquina Windows utilizando Docker Desktop para ejecutar los contenedores, o una máquina Windows utilizando el subsistema Linux para Windows (WSL2). En cualquier caso, estos dos entornos funcionan de forma equivalente a la hora de arrancar y ejecutar contenedores Docker.
+Si es necesario desplegarla en remoto, la aplicación se ha probado a desplegar en un servidor virtual privado (VPS) corriendo Ubuntu Server 20.04. En este servidor se ha instalado Docker y Docker-compose con el objetivo de ejecutar todos los contenedores necesarios para soportar el Laradock ya configurado con Evidentia. No han existido problemas a la hora del despliegue en remoto, por lo que no se requieren pasos adicionales.
+
+Entre los contenedores que podemos encontrar y que son necesarios para ejecutar la aplicación están:
+- Nginx: sirve como servidor web y sirve todos los archivos al usuario. Para ello, se encuentra configurado con un módulo de PHP y se conecta a otro contenedor mediante FastCGI.
+- Workspace: este contenedor contiene una instalación de PHP FPM (FastCGI), que ejecuta toda la lógica de la aplicación de Evidentia. Sus resultados se pasan a Nginx para ser servidos al usuario.
+- MySQL: este contenedor sirve como base de datos para la aplicación de Evidentia.
+- Phpmyadmin: contiene un administrador de bases de datos MySQL que permite gestionar la base de datos que se encuentra en el contenedor de MySQL.
+- Redis: base de datos en memoria que ofrece una gran velocidad. Se usa como memoria caché de la aplicación, mejorando los tiempos de respuesta y de ejecución.
+Cabe destacar que todos los contenedores están conectados a una misma red de Docker, exponiendo sus servicios a través de un puerto mapeado a la máquina de host, de forma que parezca que se está corriendo el proyecto en su totalidad directamente en el sistema operativo, y no virtualizado en contenedores.
+
+El despliegue del entorno de desarrollo en uno de los sistemas anteriormente mencionado se puede realizar así:
+
+#### 1. Clonar repositorio de Evidentia
+
+Clonamos el repositorio de Evidentia
+
+    git clone https://github.com/drorganvidez/evidentia.git evidentia
+
+#### 2.1. Instalación automática
+
+Dentro de la carpeta evidentia que acabamos de clonar, encontraremos un archivo llamado install_laradock.sh
+
+Primero, mediante consola, nos situaremos en la carpeta evidentia
+
+    cd evidentia
+
+Luego, daremos permisos de ejecución al archivo
+
+    chmod +x install_laradock.sh
+
+Por último, ejecutaremos el archivo
+
+    sh install_laradock.sh
+
+#### 2.2. Instalación manual de Laradock
+
+Aunque el paquete de Laradock está convenientemente automatizado, puede darse el caso de no funcionar bien. Podemos, entonces, introducir los comandos de forma manual.
+
+Copiamos las variables de entorno desde la carpeta laradock
+
+    cd laradock
+    cp env.example .env
+
+Nos aseguramos que los contenedores están con STATUS: UP
+
+Listamos los contenedores que están corriendo:
+
+    docker ps
+
+En caso de que no sea así, nos situamos en la carpeta laradock (si no lo estamos ya) y levantamos los contenedores:
+
+    cd laradock
+    docker-compose up -d nginx mysql phpmyadmin redis workspace
+
+Para acceder al espacio de trabajo, nos fijamos en la columna NAMES a ver qué nombre tiene el contenedor de workspace.
+
+En nuestro caso, es laradock_workspace
+
+Actualizamos composer
+
+    docker exec laradock_workspace rm -f composer.lock
+    docker exec laradock_workspace composer install
+
+Inicializamos la base de datos de Evidentia
+
+    docker exec laradock_workspace php artisan evidentia:start_docker
+
+Inicializamos una instancia por defecto, Curso 2021/22
+
+    docker exec laradock_workspace php artisan evidentia:createinstance
+
+Generamos una nueva key
+
+    docker exec laradock_workspace php artisan key:generate
+
+Actualizamos la caché
+
+    docker exec laradock_workspace php artisan config:cache
+
+#### 3. Comprobar que todo ha ido bien
+
+Desde el navegador, acceder a la dirección http://localhost.
 
 ### Ejercicio de propuesta de cambio
 Se supone que se pide la siguiente propuesta de cambio: incluir comparaciones de las métricas de las distintas instancias existentes. A continuación se van a definir los pasos necesarios para realizar este cambio.
