@@ -16,21 +16,6 @@ class DashboardController extends Controller
         $this->middleware('checkroles:LECTURE');
     }
 
-    public function numberOfTotalUsers()
-    {
-        $instance = \Instantiation::instance();
-
-        $student_users= User::student_users();
-        $student_users_count = $student_users->count();
-
-        $participations=User::student_users_by_participation();
-        #return response()->json($student_users_count);
-
-
-        return view('dashboard.statistics',
-            ['instance' => $instance, 'student_users_count' => $student_users_count,'participations' => $participations]);
-    }
-
     public function getHoursStatistics()
     {
         $sumgroup_by_comittee = function($entities) {
