@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Bonus;
+use App\Models\Event;
+use App\Models\Evidence;
+
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Meeting;
 use App\Models\User;
@@ -82,7 +87,7 @@ class DashboardController extends Controller
         return view('dashboard.statistics', [
             'instance' => $instance,
             'hours' => $this->getMeetingStatistics()
-            'hours' => $this->getHoursStatistics()
+        //    'hours' => $this->getHoursStatistics()
         ]);
     }
 }
