@@ -15,7 +15,6 @@ class EvidenceController extends Controller
 
     public function create(Request $request) {
         $validator = Validator::make($request->all(), [
-            'id' => ['required', 'numeric'],
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
             'hours' => ['required', 'numeric'],
@@ -55,7 +54,6 @@ class EvidenceController extends Controller
 
     public function updateById(Request $request) {
         $validator = Validator::make($request->all(), [
-            'id' => ['required', 'numeric'],
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
             'hours' => ['required', 'numeric'],
@@ -81,7 +79,6 @@ class EvidenceController extends Controller
         }
 
         $evidence->update([
-            'id' => $request['id'],
             'title' => $request['title'],
             'description' => $request['description'],
             'hours' => $request['hours'],

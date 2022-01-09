@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -75,6 +76,7 @@ class InstanceTest extends TestCase
 
     public function testCreateInstance()
     {
+        $this->withoutMiddleware([VerifyCsrfToken::class]);
         $this->testAdminLoginTrue();
 
         $request = [
