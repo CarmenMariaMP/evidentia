@@ -361,7 +361,7 @@ Route::group(['prefix' => '{instance}', 'middleware' => ['checkblock']], functio
     Route::get('/lecture/evidence/list','ManagementController@evidence_list')->name('lecture.evidence.list');
     Route::get('/lecture/meeting/list','ManagementController@meeting_list')->name('lecture.meeting.list');
 
-    Route::get('/lecture/dashboard/statistics','DashboardController@numberOfTotalUsers')->name('lecture.dashboard.statistics');
+    Route::get('/lecture/dashboard/statistics', 'DashboardController@showStatistics')->name('lecture.dashboard.statistics');
 
     Route::middleware(['checkroles:LECTURE'])->group(function () {
         Route::get('/lecture/config', 'ConfigController@config')->name('lecture.config');
