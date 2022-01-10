@@ -74,27 +74,3 @@
 
 
 
-
-
-    <canvas id="totalCtx" width="500" height="400"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    window.addEventListener('load', () => {
-        const totalCtx_users = document.getElementById('totalCtx_users');
-        const totalChart = new Chart(totalCtx_users, {
-            type: 'bar',
-            data: {
-                labels: ['Organización', 'Intermedio', 'Asistencia'],
-                datasets: [{
-                    label: 'Número de alumnos',
-                    data: [
-                        {{$users['participations'][0]->count()}}, {{$users['participations'][1]->count()}}, {{$users['participations'][2]->count()}}
-                    ]
-                }]
-            },
-            options: {
-                responsive: false
-            }
-        });
-    });
-</script>

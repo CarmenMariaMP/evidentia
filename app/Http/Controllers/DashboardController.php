@@ -5,6 +5,7 @@ use App\Models\Bonus;
 use App\Models\Event;
 use App\Models\Evidence;
 use App\Models\Meeting;
+use App\Models\Comittee;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
