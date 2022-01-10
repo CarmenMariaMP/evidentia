@@ -15,9 +15,11 @@
         <div class="card shadow-lg">
             <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#users" data-toggle="tab">Usuarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#users" data-toggle="tab">Usuarios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#hours" data-toggle="tab">Horas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#evidences" data-toggle="tab">Evidencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#meetings" data-toggle="tab">Reuniones</a></li>
+
                 </ul>
             </div>
 
@@ -32,6 +34,10 @@
                     <div class="tab-pane" id="evidences">
                         @include('dashboard.evidences', ['evidences' => $evidences])
                     </div>
+                    <div class="tab-pane" id="meetings">
+                        @include('dashboard.meetings', ['meetings' => $meetings])
+                    </div>
+
                 </div>
             </div>
         </div>

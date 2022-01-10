@@ -73,7 +73,7 @@
                 labels: JSON.parse("{{ $evidences['comittee_names_json'] }}".replace(/&quot;/g,'"')),
                 datasets: [{
                     label: 'Evidencias por comité',
-                    data: JSON.parse("{{ $evidences['comittee_values_json'] }}".replace(/&quot;/g,'"'))
+                    data: JSON.parse("{{ $evidences['comittee_values_json'] }}")
                 }]
             },
             options: {

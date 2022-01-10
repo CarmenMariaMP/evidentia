@@ -124,4 +124,5 @@ class Comittee extends Model
 
         return $collection;
     }
+
 }

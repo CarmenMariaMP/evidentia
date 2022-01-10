@@ -378,8 +378,8 @@ class User extends Authenticatable
         $users = User::get();
         $student_users=collect();
         foreach ($users as $user) {
-             if($user->hasRole('STUDENT')){
-                  $student_users->push($user);
+            if($user->hasRole('STUDENT')){
+                $student_users->push($user);
             }
         }
         return $student_users;
@@ -403,8 +403,8 @@ class User extends Authenticatable
             else{
                 $assistance->push($user);
             }
-       }
+    }
 
-       return [$organization,$intermediate,$assistance];
+    return [$organization,$intermediate,$assistance];
     }
 }
