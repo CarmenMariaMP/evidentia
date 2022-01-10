@@ -23,7 +23,7 @@
     <br>
 
     <div class="d-flex flex-wrap">
-    <table id='dataset' class="table statistics table-hover table-responsive">
+    <table id='dataset' class="table  table-hover table-responsive">
         <thead>
             <tr>
                 <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Comité</th>
