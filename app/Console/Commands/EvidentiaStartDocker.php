@@ -111,6 +111,7 @@ class EvidentiaStartDocker extends Command
         exec('echo "ADMIN_PASSWORD=admin" >> .env');
         exec('echo "" >> .env');
         exec('echo "EVIDENTIA_VERSION=" >> .env');
+        exec('echo "JWT_SECRET=heVyZkAxMEYLH8WoNUpMO4CnIfzQ11UHBDVra7RiZZIH4y8aggpjB3juvQfqsL3B" >> .env');
         $this->line('Setting environment file ... [OK]');
 
         $this->line('Generating key');
