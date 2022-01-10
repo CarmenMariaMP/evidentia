@@ -371,4 +371,40 @@ class User extends Authenticatable
 
         return $comittees_names;
     }
+
+    #Todos los usuarios con el rol STUDENT
+    public static function student_users()
+    {
+        $users = User::get();
+        $student_users=collect();
+        foreach ($users as $user) {
+             if($user->hasRole('STUDENT')){
+                  $student_users->push($user);
+            }
+        }
+        return $student_users;
+    }
+
+    #Usuarios con rol STUDENT agrupados por nivel de participación
+    public static function student_users_by_participation()
+    {
+        $organization=collect();
+        $intermediate=collect();
+        $assistance=collect();
+        $users = User::student_users();
+        foreach ($users as $user) {
+            $user->participation;
+            if($user == 'ORGANIZATION'){
+                $organization->push($user);
+            }
+            elseif($user == 'INTERMEDIATE'){
+                $intermediate->push($user);
+            }
+            else{
+                $assistance->push($user);
+            }
+       }
+
+       return [$organization,$intermediate,$assistance];
+    }
 }

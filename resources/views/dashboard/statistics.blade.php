@@ -24,7 +24,7 @@
             <div class="card-body">
                 <div class="tab-content">
                     <div class="active tab-pane" id="users">
-
+                        @include('dashboard.users', ['users' => $users])
                     </div>
                     <div class="tab-pane" id="hours">
                         @include('dashboard.hours', ['hours' => $hours])

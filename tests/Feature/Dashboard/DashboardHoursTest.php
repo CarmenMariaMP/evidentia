@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class DashboardHoursTest extends TestCase
 {
     public function test_dashboard_hours_view()
     {
