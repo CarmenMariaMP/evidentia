@@ -11,11 +11,11 @@
 
 Miembro del equipo  | Horas | Commits | LoC | Test | Issues | Incremento |
 ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |  ------------- | 
-[Castro Bonilla, María](https://github.com/Mariia-2000) | HH | XX | YY | 11 | 6 | API rest evidencia, API rest alumnos test, Dashboard reuniones, Dashboard reuniones test
-[Diz Gil, Guillermo](https://github.com/GuilleX7) | HH | XX | YY | 21 | 7 | API rest autentificación y comités, API rest reuniones y autentificación test, Dashboard horas, Dashboard horas test
-[Muñoz Pérez, Carmen Mª](https://github.com/CarmenMariaMP) | HH | XX | YY | 11 | 7 | API rest alumnos, API rest comités test, Dashboard alumnos, Dashboard alumnos test
-[Rodríguez Pérez, Francisco](https://github.com/Fco-bit) | HH | XX | YY | 12 | 6 | API rest reuniones, API rest evidencias test, Dashboard evidencias y reuniones, Dashboard evidencias test
-**TOTAL** | tHH  | tXX | tYY | tZZ | tII | Descripción breve 
+[Castro Bonilla, María](https://github.com/Mariia-2000) | HH | 10 | 765 | 11 | 6 | API rest evidencia, API rest alumnos test, Dashboard reuniones, Dashboard reuniones test
+[Diz Gil, Guillermo](https://github.com/GuilleX7) | HH | 14 | 1973 | 21 | 7 | API rest autentificación y comités, API rest reuniones y autentificación test, Dashboard horas, Dashboard horas test
+[Muñoz Pérez, Carmen Mª](https://github.com/CarmenMariaMP) | HH | 12 | 691 | 11 | 7 | API rest alumnos, API rest comités test, Dashboard alumnos, Dashboard alumnos test
+[Rodríguez Pérez, Francisco](https://github.com/Fco-bit) | HH | 13 | 891 | 12 | 6 | API rest reuniones, API rest evidencias test, Dashboard evidencias y reuniones, Dashboard evidencias test
+**TOTAL** | tHH  | t49 | t4320 | t55 | t26 | API rest & Dashboard
 
 La tabla contiene la información de cada miembro del proyecto y el total de la siguiente forma: 
   * Commits: solo contar los commits hechos por miembros del equipo, no lo commits previos
@@ -244,6 +244,6 @@ En el desarrollo del proyecto se han agrupado las siguientes lecciones aprendida
 * La importancia de implementar los estándares lo antes posible para conseguir una gestión unificada en el proyecto rápidamente.
 
 
-En el proyecto desarrollado, se han implementado dos funcionalidades: una Api Rest de Evidentia y un dashboard para el profesorado con ciertas métricas. Cabe destacar que ambas funcionalidades tienen muchos aspectos a mejorar. En cuanto a la Api realizada es bastante básica, ya que únicamente tiene los métodos CRUD; por lo que esta se podría mejorar añadiendo más métodos, además de que no cuenta con la seguridad necesaria para ser implementada en la aplicación ya que solo requiere estar autenticado para realizar todas las operaciones CRUD de los modelos mencionados, cuando en algunos de los modelos también se necesita un rol específico.
+En el proyecto desarrollado, se han implementado dos funcionalidades: una Api Rest de Evidentia y un dashboard para el profesorado con ciertas métricas. Cabe destacar que ambas funcionalidades tienen muchos aspectos a mejorar. En cuanto a la Api realizada, hay que destacar que este es un incremento base que debe ser extendido en el futuro por otro grupo de trabajo, ya que únicamente tiene los métodos CRUD; esta se podría mejorar añadiendo más métodos, además de que no cuenta con la seguridad necesaria para ser implementada en la aplicación ya que solo requiere estar autenticado para realizar todas las operaciones CRUD de los modelos mencionados, cuando en algunos de los modelos también se necesita un rol específico. Sin embargo, implementar la autenticación mediante JWT fue un gran avance debido a la arquitectura de la aplicación.
 
 Por otro lado, en cuanto a la funcionalidad del dashboard se han obtenido bastantes métricas, aunque se podría estudiar qué otrás métricas de interés se podrían incluir. Además, sería muy interesante incluir la manera de poder realizar comparaciones entre distintas instancias gracias a estas métricas obtenidas.
