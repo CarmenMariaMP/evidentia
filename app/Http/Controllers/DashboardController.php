@@ -44,10 +44,9 @@ class DashBoardController extends Controller
             array_push($evidences_by_commitee, $result[0]);
         }
         $evidences_by_status = Evidence::get_evidences_by_status();
-        $comittee_names_json = json_encode($comittee_names,JSON_HEX_QUOT );
-        $comittee_values_json = json_encode($comittee_values,JSON_HEX_QUOT );
+        $comittee_names_json = json_encode($comittee_names);
+        $comittee_values_json = json_encode($comittee_values);
 
-        //return response()->json($evidences_by_status[0]);
         return ['total_evidences' => $total_evidences,'evidences_by_commitee' =>$evidences_by_commitee,'evidences_by_status' =>$evidences_by_status,
         'comittee_names_json'=> $comittee_names_json, 'comittee_values_json' => $comittee_values_json];
     }
@@ -102,7 +101,6 @@ class DashBoardController extends Controller
     public function showStatistics()
     {
         $instance = \Instantiation::instance();
-
         return view('dashboard.statistics', [
             'instance' => $instance,
             'hours' => $this->getHoursStatistics(),
