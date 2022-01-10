@@ -1,0 +1,106 @@
+Contribution stats (by author) on the current branch:
+
+         CarmenMariaMP <62175263+CarmenMariaMP@users.noreply.github.com>:
+          insertions:    582    (0%)
+          deletions:     86     (0%)
+          files:         23     (0%)
+          commits:       11     (3%)
+          lines changed: 668    (0%)
+          first commit:  Tue Nov 2 23:14:27 2021 +0100
+          last commit:   Sun Jan 9 21:08:59 2022 +0100
+
+         dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>:
+          insertions:    656    (0%)
+          deletions:     630    (0%)
+          files:         19     (0%)
+          commits:       17     (4%)
+          lines changed: 1286   (0%)
+          first commit:  Wed Jan 6 07:51:35 2021 +0000
+          last commit:   Wed Sep 15 18:38:47 2021 +0000
+
+         Fco-bit <fcobit@gmail.com>:
+          insertions:    94     (0%)
+          deletions:     0      (0%)
+          files:         1      (0%)
+          commits:       1      (0%)
+          lines changed: 94     (0%)
+          first commit:  Wed Dec 22 02:26:52 2021 +0100
+          last commit:   Wed Dec 22 02:26:52 2021 +0100
+
+         Mariia-2000 <mariia-2000@gmail.com>:
+          insertions:    143    (0%)
+          deletions:     14     (0%)
+          files:         3      (0%)
+          commits:       2      (1%)
+          lines changed: 157    (0%)
+          first commit:  Wed Dec 22 01:27:53 2021 +0100
+          last commit:   Wed Dec 22 02:22:46 2021 +0100
+
+         GuilleX7 <guillermox7@gmail.com>:
+          insertions:    1973   (0%)
+          deletions:     573    (0%)
+          files:         40     (1%)
+          commits:       14     (4%)
+          lines changed: 2546   (0%)
+          first commit:  Sun Dec 19 12:38:15 2021 +0100
+          last commit:   Sun Jan 9 03:33:17 2022 +0100
+
+         practica <practica@pc-12-41.etsii>:
+          insertions:    3      (0%)
+          deletions:     3      (0%)
+          files:         2      (0%)
+          commits:       1      (0%)
+          lines changed: 6      (0%)
+          first commit:  Wed Nov 3 09:33:43 2021 +0100
+          last commit:   Wed Nov 3 09:33:43 2021 +0100
+
+         Maria <marcasbon@alum.es>:
+          insertions:    622    (0%)
+          deletions:     286    (0%)
+          files:         13     (0%)
+          commits:       8      (2%)
+          lines changed: 908    (0%)
+          first commit:  Tue Jan 4 21:53:07 2022 +0100
+          last commit:   Mon Jan 10 20:12:14 2022 +0100
+
+         David Romero Organvídez <drorganvidez@icloud.com>:
+          insertions:    1096   (0%)
+          deletions:     254    (0%)
+          files:         15     (0%)
+          commits:       14     (4%)
+          lines changed: 1350   (0%)
+          first commit:  Thu Sep 17 01:00:13 2020 +0200
+          last commit:   Sun Oct 17 23:20:12 2021 +0200
+
+         David Romero <davromorg@alum.us.es>:
+          insertions:    1031787        (99%)
+          deletions:     142601 (99%)
+          files:         5306   (97%)
+          commits:       312    (79%)
+          lines changed: 1174388        (99%)
+          first commit:  Tue Mar 3 17:22:44 2020 +0100
+          last commit:   Tue Nov 9 11:56:36 2021 +0100
+
+         Francisco Rodríguez Pérez <56715417+Fco-bit@users.noreply.github.com>:
+          insertions:    797    (0%)
+          deletions:     152    (0%)
+          files:         37     (1%)
+          commits:       12     (3%)
+          lines changed: 949    (0%)
+          first commit:  Mon Jan 3 10:40:24 2022 +0100
+          last commit:   Mon Jan 10 19:30:31 2022 +0100
+
+         CarmenMariaMP <paracarmenmari@gmail.com>:
+          insertions:    109    (0%)
+          deletions:     0      (0%)
+          files:         2      (0%)
+          commits:       1      (0%)
+          lines changed: 109    (0%)
+          first commit:  Wed Dec 22 02:25:14 2021 +0100
+          last commit:   Wed Dec 22 02:25:14 2021 +0100
+
+        total:
+          insertions:    1037862        (100%)
+          deletions:     144599 (100%)
+          files:         5461   (100%)
+          commits:       393    (100%)
