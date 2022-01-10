@@ -28,6 +28,22 @@ class Instantiation
         config(['database.default' => 'instance']);
     }
 
+    public static function set_default_central()
+    {
+        config(['database.connections.instance' => [
+            'driver' => env("DB_CONNECTION"),
+            'host' => env("DB_HOST"),
+            'database' => env("DB_DATABASE"),
+            'port' => env("DB_PORT"),
+            'username' => env("DB_USERNAME"),
+            'password' => env("DB_PASSWORD"),
+            'charset' => env("DB_CHARSET"),
+            'collation' => env("DB_COLLATION"),
+            'engine' => 'InnoDB',
+        ]]);
+        config(['database.default' => 'mysql']);
+    }
+
     public static function set($instance)
     {
         config(['database.connections.instance' => [

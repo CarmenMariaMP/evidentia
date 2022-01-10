@@ -1,26 +1,26 @@
 <h3>Alumnos por nivel de participación</h3>
 <br>
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap align-items-start">
     <table class="table statistics table-hover table-responsive">
         <thead>
         <tr>
-            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Participación</th>
-            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Número de alumnos</th>
+            <th class="d-md-table-cell d-lg-table-cell">Participación</th>
+            <th class="d-md-table-cell d-lg-table-cell">Número de alumnos</th>
         </tr>
         </thead>
         <tbody>
 
             <tr>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Organización</td>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$users['participations'][0]->count()}}</td>
+                <td class="d-md-table-cell d-lg-table-cell">Organización</td>
+                <td class="d-md-table-cell d-lg-table-cell">{{$users['participations'][0]->count()}}</td>
             </tr>
             <tr>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Intermedio</td>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$users['participations'][1]->count()}}</td>
+                <td class="d-md-table-cell d-lg-table-cell">Intermedio</td>
+                <td class="d-md-table-cell d-lg-table-cell">{{$users['participations'][1]->count()}}</td>
             </tr>
             <tr>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Asistencia</td>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$users['participations'][2]->count()}}</td>
+                <td class="d-md-table-cell d-lg-table-cell">Asistencia</td>
+                <td class="d-md-table-cell d-lg-table-cell">{{$users['participations'][2]->count()}}</td>
             </tr>
         </tbody>
     </table>
@@ -29,18 +29,18 @@
 <hr>
 <h3>Total de alumnos</h3>
 <br>
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap align-items-start">
     <table class="table statistics table-hover table-responsive">
         <thead>
             <tr>
-                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Métrica</th>
-                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Estadística</th>
+                <th class="d-md-table-cell d-lg-table-cell">Métrica</th>
+                <th class="d-md-table-cell d-lg-table-cell">Estadística</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Número total de alumnos</td>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$users['student_users_count']}}</td>
+                <td class="d-md-table-cell d-lg-table-cell">Número total de alumnos</td>
+                <td class="d-md-table-cell d-lg-table-cell">{{$users['student_users_count']}}</td>
             </tr>
         </tbody>
     </table>

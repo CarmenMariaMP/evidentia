@@ -1,37 +1,37 @@
 <h3>Reuniones totales</h3>
 <br>
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap align-items-start">
     <table id='dataset' class="table statistics table-hover table-responsive">
         <thead>
             <tr>
-                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Métrica</th>
+                <th class="d-md-table-cell d-lg-table-cell">Métrica</th>
                 <th>Valor</th>
             </tr>
         </thead>
         <tbody>
         <tr>
-            <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Reuniones creadas durante el año escolar</td>
-            <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meetings['meetings_count']}}</td>
+            <td class="d-md-table-cell d-lg-table-cell">Reuniones creadas durante el año escolar</td>
+            <td class="d-md-table-cell d-lg-table-cell">{{$meetings['meetings_count']}}</td>
         </tr>
         </tbody>
     </table>
 </div>
-
+<hr>
 <h3>Reuniones por comité</h3>
 <br>
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap align-items-start">
     <table id = "dataset" class="table table-hover table-responsive">
         <thead>
             <tr>
-                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Comité</th>
+                <th class="d-md-table-cell d-lg-table-cell">Comité</th>
                 <th>Número de reuniones</th>
             </tr>
         </thead>
         <tbody>
         @foreach($meetings['meeting_by_commitee'] as $meeting_commitee)
         <tr>
-            <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meeting_commitee['comittee_id']}}</td>
-            <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meeting_commitee['total']}}</td>
+            <td class="d-md-table-cell d-lg-table-cell">{{$meeting_commitee['comittee_id']}}</td>
+            <td class="d-md-table-cell d-lg-table-cell">{{$meeting_commitee['total']}}</td>
         </tr>
         @endforeach
         </tbody>

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Bonus;
 use App\Models\Event;
 
-class DashBoardController extends Controller
+class DashboardController extends Controller
 {
 
     public function __construct()
