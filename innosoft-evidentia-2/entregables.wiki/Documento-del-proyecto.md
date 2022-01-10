@@ -75,8 +75,40 @@ Por último añadir que usamos github Actions como plataforma de CI donde realiz
 
 * CI: Este flujo de trabajo se encarga de verificar que el comportamiento de la aplicación una vez desplegada es el correcto. Para ello, se define el "job" phpunit, que es el "job" encargado de correr todos los tests que se encuentren definidos dentro de la carpeta tests del proyecto de Evidentia. Este workflow se realiza siempre que se haga un push a las ramas: "develop" y "master" y/o una pull request.
 
-### Visión global del proceso de desarrollo (1.500 palabras aproximadamente)
-Debe dar una visión general del proceso que ha seguido enlazándolo con las herramientas que ha utilizado. Ponga un ejemplo de un cambio que se proponga al sistema y cómo abordaría todo el ciclo hasta tener ese cambio en producción. Los detalles de cómo hacer el cambio vendrán en el apartado correspondiente. 
+### Visión global del proceso de desarrollo
+
+### Proceso de desarrollo
+A lo largo del ciclo de vida del proyecto se han desarrollado múltiples actividades. Para ello se han utilizado diversas herramientas adecuadas para cada uno de los procesos. En esta sección se detallará cómo ha sido este proceso de desarrollo del producto, así como las herramientas que se han ido utilizando.
+
+Al comienzo del proyecto, antes de desarrollar las funcionalidades que se pretendían implementar; el equipo ha tenido que hacer un estudio del framework Laravel, ya que es el utilizado en el proyecto Evidentia. Para ello, este se ha estudiado a través de la documentación oficial. Esta es muy detallada y no excesivamente compleja de entender. Durante el desarrollo del proyecto se ha consultado la documentación oficial en numerosas ocasiones. Además, al principio; el equipo asistió a un taller de Laravel y de la aplicación Evidentia impartido por el creador de Evidentia, para obtener unas lecciones básicas antes de afrontar la implementación.
+
+Por otro lado, para la gestión del proyecto en general se ha utilizado Github. Github permite una cómoda gestión de muchos aspectos del proyecto. A continuación, se van a describir las funcionalidades más destacables que se han utilizado:
+
+* La mayor ventaja de esta herramienta es poder tener un repositorio que almacene todos los archivos de interés para este proyecto.
+* En esta plataforma se puede crear un proyecto, teniendo así un Kanban en el que se pueden introducir las distintas incidencias a realizar asignando personas a esta y adjuntando diversas etiquetas. Por ello, el establecimiento del estándar de incidencias se ha realizado basándose en esta ventaja de Github. Al final de esta sección se explicará con mayor profundidad este proceso.
+* Permite crear seguridad entre las ramas más importantes del proyecto. Así, se pueden evitar desastres que podrían significar el fracaso del proyecto. Así, en nuestro proyecto se han protegido las ramas `master`, `develop` y `feature/X`, para que obligatoriamente un desarrollador deba revisar los cambios que se quieran mergear en ellas.
+
+Por consiguiente, en el proyecto se ha utilizado Git; vital para el control de versiones y gestión del código. Cabe destacar el uso de dos herramientas que son similares: Github Desktop y Github Kraken. Ambas sirven para hacer uso de Git a través de una interfaz de usuario sencilla e intuitiva. Aun así, hay ciertas ventajas de Git que no se pueden aprovechar con estas herramientas, por lo que saber utilizarlo a través de la consola de comandos es una gran ventaja.
+
+Con respecto al proceso de integración continua, se ha utilizado GitHub Actions como plataforma de CI.
+En cuanto a la implementación del código, se ha utilizado la herramienta Visual Studio Code (VS Code) como editor. Esta ha sido escogida ya que es muy versátil y permite la inclusión de gran cantidad extensiones que facilitan al desarrollador. En nuestro proyecto concreto, se ha instalado el paquete ‘Laravel Extension Pack’, que contiene diez extensiones de interés para el desarrollo del código utilizando Laravel. Otras de las ventajas de VS Code es que permite el control integrado de Git, una de las herramientas más importantes del proyecto.
+
+#### Cambio propuesto del sistema
+Una vez se ha descrito a grandes rasgos las herramientas que se han ido utilizando en el desarrollo del proyecto, se va a explicar qué se debería hacer si se pretende realizar un nuevo cambio en el proyecto. Esto se explicará de manera general, ya que más adelante en la sección ‘Ejercicio de propuesta de cambio’ se especifica una propuesta concreta con los pasos a seguir.
+
+En primer lugar, cuando se afronta un cambio se debe pensar de qué tipo es: nueva funcionalidad o hotfix. Dentro de hotfix entran aspectos tanto de resolución de errores como refactorización o mejoras leves de frontend. Esto es vital, ya que dependiendo del tipo de cambio se utilizarán unas ramas u otras. Si es una nueva funcionalidad, se utilizarán ramas feature y rama específica para los miembros, si no; se utilizará una única rama hotfix en la que se realizarán los cambios directamente.
+Una vez se sabe esto, se estudiará el cambio para saber las incidencias que se crearán para realizarlo. Todas las incidencias que correspondan al cambio deberán tener una parte del título común para que sea más fácil identificar que pertenecen al mimo. Cuando se creen estas incidencias se deberán hacer las siguientes acciones.
+
+* Añadir un título descriptivo y claro.
+* Añadir una descripción (opcional).
+* Indicar la prioridad de la incidencia y el tipo de esta a través de las etiquetas.
+* Cuando un desarrollador sepa que va a trabajar en esa incidencia, deberá asignársela.
+
+Durante el desarrollo de este cambio las incidencias asociadas pasarán por estos estados: ‘To do’, ‘In progress’, ‘In review’, ‘Done’. Cuando la incidencia se crea está en el estado ‘To do’. Cuando un desarrollador empieza a trabajar en esta pasará al estado ‘In progress’. Una vez esta esté finalizada, deberá pasar una revisión, por lo que pasará al estado ‘In review’. En este momento es cuando un miembro del equipo es asignado para realizar la revisión, que se hará de forma dinámica para evitar cuello de botella. Finalmente, si la incidencia es aprobada, esta pasará al estado ‘To do’. Si no es así, podrá ser por aspectos a corregir/mejorar. Dependiendo de la complejidad de estos aspectos, la tarea se quedará en ‘In review’ si no es mu complejo, o volvería al estado de ‘In progress’.
+
+Una vez que todas las incidencias asociadas al cambio han sido realizadas, se considerará que el cambio se ha finalizado. Así, la rama que contenga todos los cambios deberá ser mergeada con develop a través de un Pull Request, que deberá ser revisado por un miembro del equipo. Una vez realizado esto se realizará el mismo proceso con la rama master con la diferencia de que el Pull Request debe ser revisado por el Project Manager del equipo.
+Finalmente, el equipo sopesará si realizar una nueva release o no. Esto dependerá del cambio realizado y de la situación actual de la aplicación.
+Esta es una descripción genérica del proceso que se debe llegar a cabo cada vez que se quiera realizar un cambio. En el apartado ‘Ejercicio de cambio’ se describirá paso a paso un ejemplo concreto cuanto te proponen un incremento funcional.
 
 ### Entorno de desarrollo (800 palabras aproximadamente)
 El entorno de desarrollo de la aplicación está compuesto por contenedores Docker orquestados por Docker-compose, que es una de las dos estrategias presentadas por el proyecto original de Evidentia, siendo la otra Homestead, pensada para utilizarla junto a Vagrant. Dado que Evidentia es un proyecto Laravel, podemos encontrar un subproyecto llamado Laradock que consiste en un conjunto de imágenes y contenedores de Docker que nos permiten desplegar un entorno con todas las herramientas necesarias para aprovechar el potencial de Laravel al máximo ya preparadas.
