@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\UserService;
-use App\Models\Comittee;
+
 use App\Models\Coordinator;
 use App\Models\Evidence;
 use App\Models\Meeting;

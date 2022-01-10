@@ -1,7 +1,26 @@
+<h3>Reuniones totales</h3>
+<br>
+<div class="d-flex flex-wrap">
+    <table id='dataset' class="table statistics table-hover table-responsive">
+        <thead>
+            <tr>
+                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Métrica</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Reuniones creadas durante el año escolar</td>
+            <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meetings['meetings_count']}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 <h3>Reuniones por comité</h3>
 <br>
 <div class="d-flex flex-wrap">
-    <table id = "dataset" class="table statistics table-hover table-responsive">
+    <table id = "dataset" class="table table-hover table-responsive">
         <thead>
             <tr>
                 <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Comité</th>
@@ -9,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($meetings ['meeting_by_commitee'] as $meeting_commitee)
+        @foreach($meetings['meeting_by_commitee'] as $meeting_commitee)
         <tr>
             <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meeting_commitee['comittee_id']}}</td>
             <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell">{{$meeting_commitee['total']}}</td>
@@ -30,10 +49,9 @@
             data: {
                 labels: JSON.parse("{{$meetings['comittee_names_json']}}".replace(/&quot;/g, '"')),
                 datasets: [{
-                    label: 'Numero de reuniones por comite',
-                    data: [
-                        JSON.parse("{{$meetings['comittee_values_json']}}".replace(/&quot;/g, '"')),
-                    ]
+                    label: 'Número de reuniones por comité',
+                    data: JSON.parse("{{$meetings['comittee_values_json']}}"),
+
                 }]
             },
             options: {
