@@ -1,7 +1,7 @@
 <h3>Total de horas</h3>
 <br>
 <div class="d-flex flex-wrap">
-    <table class="table table-hover table-responsive">
+    <table class="table statistics table-hover table-responsive">
         <thead>
             <tr>
                 <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Origen</th>
@@ -31,12 +31,12 @@
             </tr>
         </tbody>
     </table>
-    <canvas id="totalCtx" width="500" height="400"></canvas>
+    <canvas id="totalCtx_hours" width="500" height="400"></canvas>
 </div>
 <hr>
 <h3>Horas por comité</h3>
 <br>
-<table class="table table-hover table-responsive">
+<table class="table statistics table-hover table-responsive">
     <thead>
         <tr>
             <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell">Comité</th>
@@ -59,8 +59,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     window.addEventListener('load', () => {
-        const totalCtx = document.getElementById('totalCtx');
-        const totalChart = new Chart(totalCtx, {
+        const totalCtx_hours = document.getElementById('totalCtx_hours');
+        const totalChart = new Chart(totalCtx_hours, {
             type: 'bar',
             data: {
                 labels: ['Eventos', 'Bonus', 'Evidencias', 'Reuniones'],
