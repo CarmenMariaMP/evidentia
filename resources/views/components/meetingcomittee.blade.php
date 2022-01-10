@@ -1,9 +1,19 @@
 <span class="badge badge-dark">
-    {!!$meeting->comittee->icon!!}
+    @if (!isset($meeting->comittee))
+        <p>desconocido</p>
 
-    {{$meeting->comittee->name}}
 
-    @if(isset($meeting->comittee->subcomittee))
-        / {{$meeting->comittee->subcomittee}}
+    @else
+
+
+
+
+        {!!$meeting->comittee->icon!!}
+
+        {{$meeting->comittee->name}}
+
+        @if(isset($meeting->comittee->subcomittee))
+            / {{$meeting->comittee->subcomittee}}
+        @endif
     @endif
 </span>

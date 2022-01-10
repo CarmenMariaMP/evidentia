@@ -7,7 +7,7 @@ use App\Models\SignatureSheet;
 use Closure;
 use Illuminate\Support\Facades\Config;
 
-class SelectDatabase
+class SelectDatabaseApi
 {
     /**
      * Handle an incoming request.
@@ -18,24 +18,15 @@ class SelectDatabase
      */
     public function handle($request, Closure $next)
     {
-        $param = $request->segment(1);
-
-        $admin_routes = array("", "admin", "logout", "deploy", "api");
-
-        // si es una de las rutas permitidas en el array, dejo pasar
-        if (in_array($param, $admin_routes)) {
-            return $next($request);
-        }
-
-        // si no es ninguna ruta, compruebo que sea una instancia definida en la BBDD
+        $param = $request->segment(2);
+        \Instantiation::set_default_central();
         $instance = Instance::where('route', $param)->first();
 
-        // if database doesn't exist
         if ($instance == null) {
-            return redirect('/');
+            \Instantiation::set_default_instance();
+        } else {
+            \Instantiation::set($instance);
         }
-
-        \Instantiation::set($instance);
 
         return $next($request);
     }

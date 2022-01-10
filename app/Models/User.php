@@ -8,9 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -370,5 +370,49 @@ class User extends Authenticatable
         $comittees_names = $comittees_names->implode(" | ");
 
         return $comittees_names;
+    }
+
+    #Todos los usuarios con el rol STUDENT
+    public static function student_users()
+    {
+        $users = User::get();
+        $student_users=collect();
+        foreach ($users as $user) {
+            if($user->hasRole('STUDENT')){
+                $student_users->push($user);
+            }
+        }
+        return $student_users;
+    }
+
+    #Usuarios con rol STUDENT agrupados por nivel de participación
+    public static function student_users_by_participation()
+    {
+        $organization=collect();
+        $intermediate=collect();
+        $assistance=collect();
+        $users = User::student_users();
+        foreach ($users as $user) {
+            $user->participation;
+            if($user == 'ORGANIZATION'){
+                $organization->push($user);
+            }
+            elseif($user == 'INTERMEDIATE'){
+                $intermediate->push($user);
+            }
+            else{
+                $assistance->push($user);
+            }
+        }
+        return [$organization,$intermediate,$assistance];
+    }
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
