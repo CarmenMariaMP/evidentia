@@ -1,20 +1,9 @@
-El documento del proyecto debe ser un documento que sintetice los aspectos del proyecto elegido para su desarrollo con respecto a los temas vistos en clases. 
-
-Debe tener claramente identificados los nombres y apellidos de cada componente, grupo al que pertenecen (1, 2, o 3 mañana o tarde), curso académico, nombre del proyecto (seguir la política de nombres). Use este [[modelo de portada]] para el documento del proyecto y alójelo en su repositorio o en una página del [wiki](https://1984.lsi.us.es/wiki-egc/) de la asignatura.  
-
-Debe ser un documento elaborado en formato [wiki]. 
-
-Debe ser un documento presentado de manera profesional guardando la forma en los estilos y contenidos y con el máximo nivel de rigor académico y profesional.
-
-Este curso se recomienda que el documento se aloje o bien en el [wiki de la asignatura](https://1984.lsi.us.es/wiki-egc/) o bien en el repositorio del proyecto usando para ello el lenguaje de [markdown](https://guides.github.com/features/mastering-markdown/) que ofrece github. 
-
-Tenga en cuenta los siguientes comentarios generales: 
-
-* Siempre diferencie claramente las secciones y subsecciones y para ello use etiquetas de encabezado como las que se disponen en los lenguajes tipo _markdown_
+# Nombre del proyecto: innosoft-evidentia-2
+* grupo 2 
+* Curso escolar: 2021/2022
+* Asignatura: Evolución y gestión de la configuración
 
 # Apartados del documento 
-
-El documento del proyecto tendrá (al menos) que sintetizar los siguientes apartados:
 
 ### Indicadores del proyecto
 
@@ -22,9 +11,10 @@ El documento del proyecto tendrá (al menos) que sintetizar los siguientes apart
 
 Miembro del equipo  | Horas | Commits | LoC | Test | Issues | Incremento |
 ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |  ------------- | 
-[Apellidos, nombre](https://github.com/nombredeusuariodegithub) | HH | XX | YY | ZZ | II | Descripción breve 
-[Apellidos, nombre](https://github.com/nombredeusuariodegithub) | HH | XX | YY | ZZ | II | Descripción breve 
-[Apellidos, nombre](https://github.com/nombredeusuariodegithub) | HH | XX | YY | ZZ | II | Descripción breve 
+[Castro Bonilla, María](https://github.com/Mariia-2000) | HH | XX | YY | 11 | 6 | API rest evidencia, API rest alumnos test, Dashboard reuniones, Dashboard reuniones test
+[Diz Gil, Guillermo](https://github.com/GuilleX7) | HH | XX | YY | 21 | 7 | API rest autentificación y comités, API rest reuniones y autentificación test, Dashboard horas, Dashboard horas test
+[Muñoz Pérez, Carmen Mª](https://github.com/CarmenMariaMP) | HH | XX | YY | 11 | 7 | API rest alumnos, API rest comités test, Dashboard alumnos, Dashboard alumnos test
+[Rodríguez Pérez, Francisco](https://github.com/Fco-bit) | HH | XX | YY | 12 | 6 | API rest reuniones, API rest evidencias test, Dashboard evidencias y reuniones, Dashboard evidencias test
 **TOTAL** | tHH  | tXX | tYY | tZZ | tII | Descripción breve 
 
 La tabla contiene la información de cada miembro del proyecto y el total de la siguiente forma: 
@@ -35,13 +25,10 @@ La tabla contiene la información de cada miembro del proyecto y el total de la 
   * Incremento: principal incremento funcional del que se ha hecho cargo el miembro del proyecto
 
 ### Integración con otros equipos
-Equipos con los que se ha integrado y los motivos por lo que lo ha hecho y lugar en el que se ha dado la integración: 
-* [Nombre-del-equipo](https://github.com/nombredeusuariodegithub): breve descripción de la integración 
-* [Nombre-del-equipo](https://github.com/nombredeusuariodegithub): breve descripción de la integración 
-* [Nombre-del-equipo](https://github.com/nombredeusuariodegithub): breve descripción de la integración 
+Este es un proyecto centrado en las jornadas Innosoft, ya que se ha incrementado dos funcionalidades al sistema utilizado en este evento. Para ello ha existido una comunicación sobretodo al principio del proyecto con el creador de Evidentia. El respositorio es el siguiente: [repositorio oficial Evidentia](https://github.com/drorganvidez/evidentia)
 
-## Resumen ejecutivo (800 palabras aproximadamente)
-Se sintetizará de un vistazo lo hecho en el trabajo y los datos fundamentales. Se usarán palabras para resumir el proyecto presentado. Contendrá, al menos la siguiente información: 
+## Resumen ejecutivo 
+El equipo innosoft-evidentia-2 ha realizado un proyecto que ha consistido en incrementar dos funcionalidades del proyecto Evidentia: realización de una API Rest de Evidentia y un dashboard de profesor. Estos incrementos aportan valor a la aplicación, ya que no existe una API Rest de Evidentia  y el dashboard es útil para el desempeño del trabajo de los profesores. A continuación se describirá en profundidad todo el trabajo que se ha llevado a cabo:
 
 ### Descripción del sistema
 El proyecto que ha llevado a nuestro grupo (innosoft-evidentia-2) ha consistido en realizar dos incrementos funcionales para el sistema de Evidentia. Evidentia es un proyecto Laravel que utiliza PHP y una base de datos MySQL como pilares. La capa de datos está implementada por el ORM Eloquent y se encarga de crear y ejecutar llamadas automáticamente. Las vistas están programadas con Blade, el motor de vistas de Laravel, que permiten la modularización al poder ser incluidas en otras vistas y al permitir recibir parámetros que pueden usar como variables. En cuanto a los tests, las pruebas en sí están automatizadas gracias a Phpunit, que viene integrado con Laravel y se encarga de levantar el proyecto de forma adecuada para permitir un correcto testeo de todas las funcionalidades, ejecutando todas las pruebas que se encuentren dentro de la carpeta contenedora de los tests.
@@ -110,7 +97,7 @@ Una vez que todas las incidencias asociadas al cambio han sido realizadas, se co
 Finalmente, el equipo sopesará si realizar una nueva release o no. Esto dependerá del cambio realizado y de la situación actual de la aplicación.
 Esta es una descripción genérica del proceso que se debe llegar a cabo cada vez que se quiera realizar un cambio. En el apartado ‘Ejercicio de cambio’ se describirá paso a paso un ejemplo concreto cuanto te proponen un incremento funcional.
 
-### Entorno de desarrollo (800 palabras aproximadamente)
+### Entorno de desarrollo 
 El entorno de desarrollo de la aplicación está compuesto por contenedores Docker orquestados por Docker-compose, que es una de las dos estrategias presentadas por el proyecto original de Evidentia, siendo la otra Homestead, pensada para utilizarla junto a Vagrant. Dado que Evidentia es un proyecto Laravel, podemos encontrar un subproyecto llamado Laradock que consiste en un conjunto de imágenes y contenedores de Docker que nos permiten desplegar un entorno con todas las herramientas necesarias para aprovechar el potencial de Laravel al máximo ya preparadas.
 
 Para el despliegue en local, se ha usado o bien una máquina Windows utilizando Docker Desktop para ejecutar los contenedores, o una máquina Windows utilizando el subsistema Linux para Windows (WSL2). En cualquier caso, estos dos entornos funcionan de forma equivalente a la hora de arrancar y ejecutar contenedores Docker.
@@ -232,6 +219,16 @@ Para el desempeño del trabajo se podrá usar la herramienta que se desee. Nuest
 	4) git commit -m [mensaje] (Realización del commit con los cambios que están en el estado de stage).
     
 	5) git push (subir los cambios a la rama miembro1_instance-comparator).
+    
+Si en algún momento el desarrollador quiere mergear de una rama a otra desde la consola de comandos, deberá hacerlo de la siguiente manera:
+
+    git checkout nombre_rama_a_la_que _quiero_mergear
+    git merge rama_con_los_cambios
+    
+Si en algún momento el desarrollador quiere actualizar la rama en la que está trabajando desde la consola de comandos, deberá hacerlo de la siguiente manera:
+
+    git checkout rama_que_quiero_actualizar
+    git pull 
 
 Una vez se hayan realizado todos los cambios pertinentes, se realizará una Pull Request (desde la interfaz de Github) a la rama feature/instance_comparator para que sea revisada por otro miembro del equipo. Este miembro se asignará dinámicamente para evitar cuello de botella. La instancia asociada deberá cambiar su estado de 'In progress' a 'In review' en el Kanvan de la sección 'Project' de Github. Si la revisión es aceptada, los cambios se actualizarán en la rama feature, si no se deberán realizar los cambios pedidos por el revisor. Si estos cambios son complejos, la instancia volverá al estado 'In progress'.
 
