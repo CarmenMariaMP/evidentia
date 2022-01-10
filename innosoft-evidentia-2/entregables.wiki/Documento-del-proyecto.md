@@ -11,11 +11,11 @@
 
 Miembro del equipo  | Horas | Commits | LoC | Test | Issues | Incremento |
 ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |  ------------- | 
-[Castro Bonilla, María](https://github.com/Mariia-2000) | HH | 10 | 765 | 11 | 6 | API rest evidencia, API rest alumnos test, Dashboard reuniones, Dashboard reuniones test
-[Diz Gil, Guillermo](https://github.com/GuilleX7) | HH | 14 | 1973 | 21 | 7 | API rest autentificación y comités, API rest reuniones y autentificación test, Dashboard horas, Dashboard horas test
-[Muñoz Pérez, Carmen Mª](https://github.com/CarmenMariaMP) | HH | 12 | 691 | 11 | 7 | API rest alumnos, API rest comités test, Dashboard alumnos, Dashboard alumnos test
-[Rodríguez Pérez, Francisco](https://github.com/Fco-bit) | HH | 13 | 891 | 12 | 6 | API rest reuniones, API rest evidencias test, Dashboard evidencias y reuniones, Dashboard evidencias test
-**TOTAL** | tHH  | t49 | t4320 | t55 | t26 | API rest & Dashboard
+[Castro Bonilla, María](https://github.com/Mariia-2000) | 44 | 10 | 765 | 11 | 6 | API rest evidencia, API rest alumnos test, Dashboard reuniones, Dashboard reuniones test
+[Diz Gil, Guillermo](https://github.com/GuilleX7) | 49 | 14 | 1973 | 21 | 7 | API rest autentificación y comités, API rest reuniones y autentificación test, Dashboard horas, Dashboard horas test
+[Muñoz Pérez, Carmen Mª](https://github.com/CarmenMariaMP) | 53 | 12 | 691 | 11 | 7 | API rest alumnos, API rest comités test, Dashboard alumnos, Dashboard alumnos test
+[Rodríguez Pérez, Francisco](https://github.com/Fco-bit) | 49 | 13 | 891 | 12 | 6 | API rest reuniones, API rest evidencias test, Dashboard evidencias y reuniones, Dashboard evidencias test
+**TOTAL** | t195  | t49 | t4320 | t55 | t26 | API rest & Dashboard
 
 La tabla contiene la información de cada miembro del proyecto y el total de la siguiente forma: 
   * Commits: solo contar los commits hechos por miembros del equipo, no lo commits previos
