@@ -52,6 +52,32 @@ class DashboardController extends Controller
             'comittees' => $comittees
         ];
     }
+    public function getMeetingsStatistics()
+    {
+        $instance = \Instantiation::instance();
+        $meetings_count= Meeting::get_meeting_count();
+        $get_all_committees = Comittee::get_all_comittees();
+        $meeting_by_commitee = array();
+        $comittee_names = array();
+        $comittee_values = array();
+
+        for ($i = 0; $i < count($get_all_committees); $i++) {
+            $result = Meeting::get_meeting_by_comite($get_all_committees[$i]['id']);
+
+            $result[0]['comittee_id'] = $get_all_committees[$i]['name'];
+            array_push($comittee_names, $get_all_committees[$i]['name']);
+            array_push($comittee_values, $result[0]['total']);
+            array_push($meeting_by_commitee, $result[0]);
+        }
+        $comittee_names_json = json_encode($comittee_names);
+        $comittee_values_json = json_encode($comittee_values);
+
+        return ['meetings_count' => $meetings_count, 'meeting_by_commitee' => $meeting_by_commitee,'comittee_names_json' => $comittee_names_json,'comittee_values_json' => $comittee_values_json];
+
+        //return response()->json($meeting_by_commitee);
+
+
+    }
 
     public function showStatistics()
     {
@@ -59,7 +85,8 @@ class DashboardController extends Controller
 
         return view('dashboard.statistics', [
             'instance' => $instance,
-            'hours' => $this->getHoursStatistics()
+            'hours' => $this->getHoursStatistics(),
+            'meetings' => $this->getMeetingsStatistics()
         ]);
     }
 }

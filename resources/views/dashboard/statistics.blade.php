@@ -17,6 +17,7 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="#users" data-toggle="tab">Usuarios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#hours" data-toggle="tab">Horas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hours" data-toggle="tab">Reuniones</a></li>
                 </ul>
             </div>
 
@@ -28,6 +29,11 @@
                     <div class="tab-pane" id="hours">
                         @include('dashboard.hours', ['hours' => $hours])
                     </div>
+                     </div>
+                    <div class="tab-pane" id="hours">
+                        @include('dashboard.meetings', ['meetings' => $meetings])
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -120,4 +120,8 @@ class Comittee extends Model
 
         return $collection;
     }
+    public static function get_all_comittees()
+    {
+        return Comittee::get();
+    }
 }
