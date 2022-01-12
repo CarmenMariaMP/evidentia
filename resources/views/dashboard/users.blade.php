@@ -58,7 +58,8 @@
                     label: 'Número de alumnos',
                     data: [
                         {{$users['participations'][0]->count()}}, {{$users['participations'][1]->count()}}, {{$users['participations'][2]->count()}}
-                    ]
+                    ],
+                    backgroundColor: 'rgb(255, 0, 0)'
                 }]
             },
             options: {
